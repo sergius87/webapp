@@ -11,12 +11,20 @@ class User < ActiveRecord::Base
 	#Tamaño
 	validates :nombre, :length => {:in=>2..20}
 	validates :email, length: { maximum: 500 }
-	validates :password, :length => {:in=>6..20}
 
 	#Formatos
 	validates :email, 
 	:format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/ }
 
+	#Validar terms and services
+
+	
+
+	#Validar pass
+	  validates :password, :presence => true,
+                       :confirmation => true,
+                       :length => {:within => 6..40},
+                       :on => :create
 
 #Encriptar pass
 
