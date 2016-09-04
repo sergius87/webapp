@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
 	before_save :encrypt
 
-	attr_accessor :nombre, :email, :password, :confirm_password
+	attr_accessor :nombre, :email, :password, :password_confirmation
 
 	#Nombre y Email unicos?
 	validates :nombre, :email, :uniqueness => true
@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 	#Formatos
 	validates :email, 
 	:format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/ }
+
 
 #Encriptar pass
 

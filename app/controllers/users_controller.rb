@@ -20,16 +20,17 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      flash.now[:noticia] = "#{user.nombre} se ha registrado correctamente"
-      redirect_to root_path
-    else
-      render 'sign_up'
-    end
+    	if @user.save
+    	  flash[:noticia] = "Te has registrado correctamente"
+    	  redirect_to root_path
+    	else
+    	  render action: 'sign_up'
+    	end
   end
 
+  private
   def user_params
     params.require(:user).permit(:nombre, :email, :password,
-                                   :confirm_password)
+                                   :password_confirmation)
   end
 end
