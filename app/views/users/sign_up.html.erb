@@ -21,22 +21,39 @@
 				</ul>
 				<p>Already Signed Up? Click <%= link_to "Sign In", {:action=>"login"}, {:class=>"color-green"} %> to login your account.</p>
 			</div>
-
+			<%= form_for(@user) do |f| %>
+				<% if @user.errors.any? %>
+				<div class="margin-bottom-15"></div>
+				<div class="alert alert-danger fade in">
+				<center><%= pluralize(@user.errors.count,"error") %>
+					<ul>
+						<% @user.errors.each do |msg| %>
+						<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</center>
+				</div>
+				</div>
+				<% end %>
 			<div class="input-group margin-bottom-20">
 				<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				<input type="text" class="form-control" placeholder="Username">
+				<%= f.label :nombre %>
+				<%= f.text_field :nombre, :class=>"form-control" %>
 			</div>
 			<div class="input-group margin-bottom-20">
 				<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-				<input type="text" class="form-control" placeholder="Email">
+				<%= f.label :email %>
+				<%= f.text_field :email, :class=>"form-control" %>
 			</div>
 			<div class="input-group margin-bottom-20">
 				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-				<input type="text" class="form-control" placeholder="Password">
+				<%= f.label :password %>
+				<%= f.password_field :password, :class=>"form-control" %>
 			</div>
 			<div class="input-group margin-bottom-30">
 				<span class="input-group-addon"><i class="fa fa-key"></i></span>
-				<input type="text" class="form-control" placeholder="Confirm Password">
+				<%= f.label :confirm_password %>
+				<%= f.password_field :confirm_password, :class=>"form-control" %>
 			</div>
 			<hr>
 
@@ -49,9 +66,10 @@
 
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1">
-					<button type="submit" class="btn-u btn-block">Register</button>
+					<%= f.submit "Register", :class=>"btn-u btn-block" %>
 				</div>
 			</div>
+			<% end %>
 		</div>
 		<!--End Reg Block-->
 	</div><!--/container-->

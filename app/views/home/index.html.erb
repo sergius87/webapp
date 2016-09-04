@@ -7,6 +7,17 @@
 
 </head>
 <body>
+<!-- Mensaje enviado? -->
+		
+		<% if flash[:noticia] %>
+		<div class="margin-bottom-15"></div>
+			<div class="alert alert-warning fade in">
+			<center><%= flash[:noticia] %></center>
+			</div>
+		</div>
+		<% end %>
+		
+		<!-- FIN MENSAJE ENVIADO -->
 
 		<!--=== Slider ===-->
 		<div class="tp-banner-container">

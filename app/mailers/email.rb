@@ -11,7 +11,8 @@ class Email < ApplicationMailer
  	@email = parametros[:email]
  	@message = parametros[:message]
 
- 	mail :to => "sergiosaezdeibarra@hotmail.com", :subject => "Un nuevo mensaje de la app"
+ 	mail( :to => "sergiosaezdeibarra@hotmail.com", 
+ 		:subject => "Un nuevo mensaje de la app" )
  end
 
  def enviar(parametros)

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'usuarios/login'
 
   get 'usuarios/sign_up'
+  post 'usuarios/sign_up'
 
   get 'home/index'
 
@@ -21,6 +22,10 @@ Rails.application.routes.draw do
   get 'home/about_us'
 
   get 'home/index'
+
+  resources :users
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
