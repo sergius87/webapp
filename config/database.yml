@@ -23,7 +23,7 @@ test:
 production:
   adapter: postgresql
   encodign: unicode
-  database: db/production.postgresql
+  database: dbloppolap85kl
   pool: 5
-  username: 
-  password: 
+  username: calcbdemttqzwy
+  password: gN0HsL-rqqHMKDr6VCId4LnXpk
