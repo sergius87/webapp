@@ -2,7 +2,6 @@ class HomeController < ApplicationController
   def index
   end
   def contact
-    @titulo = "Contact"
   	if request.post?
   		#enviar correo
   		begin
